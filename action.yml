@@ -1,0 +1,26 @@
+name: AWS ECR Docker Login
+description: Logs into ECR and provides Docker credentials
+icon: log-in
+color: orange
+repository: https://github.com/effata/ecr-login-action
+maintainer: David Dahl
+inputs:
+  access_key:
+    description: 'AWS Access Key'
+    required: true
+  secret_access_key:
+    description: 'AWS Secret Access Key'
+    required: true
+  region:
+    description: 'Region to log in to'
+    required: true
+outputs:
+  username: # id of output
+    description: 'Docker Username'
+  password:
+    description: 'Docker Password'
+  registry:
+    description: 'ECR registry URI'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
