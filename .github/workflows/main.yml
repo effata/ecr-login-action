@@ -1,0 +1,15 @@
+---
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Login to ECR
+        id: ecr
+        uses: ./
+        with:
+          access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: ${{ secrets.REGION }}
